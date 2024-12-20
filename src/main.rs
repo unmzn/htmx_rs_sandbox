@@ -58,21 +58,25 @@ fn body() -> Markup {
     }
 }
 
+fn some_classes() -> &'static str {
+    "big_box pure-u-1 pure-u-md-1-2"
+}
+
 fn button_box() -> Markup {
     html! {
         .pure-g {
-            div class="big_box pure-u-1-2" style="background-color:#02e" {
+            div class=(some_classes()) style="background-color:#02e" {
                 .button_holder {
                     // button id="button" _="on click transition opacity to 0 then remove closest parent <div/>" { "Click me!" }
                     button id="button" _="on click transition opacity to 0 then toggle @hidden on closest parent <div/>" { "Click me!" }
                     button hx-put="/messages" { "Load Messages" }
                 }
                 .button_holder {
-                    button _="on click toggle @disabled on #say-hello" { "Toggle Disabled State"}
+                    button _="on click toggle @disabled on #say-hello" { "Toggle Disabled State" }
                     button button id="say-hello" _="on click alert('hello!')" { "Say Hello" }
                 }
             }
-            div class="big_box pure-u-1-2" style="background-color:#0e2" {
+            div class=(some_classes()) style="background-color:#0e2" {
                 button _="on click toggle .bordered on #second-button" { "Toggle Next Border" }
                 button id="second-button" _="on click toggle .red unless I match .bordered" { "Toggle My Background" }
             }
