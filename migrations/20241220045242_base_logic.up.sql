@@ -1,1 +1,14 @@
 -- Add up migration script here
+
+-- internal schema
+  -- internal users
+  -- internal CRM
+  -- admin info
+  -- global config
+  -- global auditing
+  -- admin functions
+-- template client schema?
+  -- user
+  -- config
+  -- local audit
+  -- language config

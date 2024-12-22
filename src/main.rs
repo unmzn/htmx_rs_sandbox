@@ -40,8 +40,10 @@ fn styles () -> Markup {
                 flex-direction: row;
             }
             .big_box {
+                // display: flex;
                 width: 500px;
                 height: 200px;
+                // gap: 10px;
             }
             "#
         }
@@ -66,14 +68,14 @@ fn button_box() -> Markup {
     html! {
         .pure-g {
             div class=(some_classes()) style="background-color:#02e" {
-                .button_holder {
-                    // button id="button" _="on click transition opacity to 0 then remove closest parent <div/>" { "Click me!" }
-                    button id="button" _="on click transition opacity to 0 then toggle @hidden on closest parent <div/>" { "Click me!" }
-                    button hx-put="/messages" { "Load Messages" }
+                .button_holder id="unhide-me"{
+                    button id="button" _="on click put 'Load Messages' into #set-me" { "reset" }
+                    button id="set-me" hx-put="/messages" { "Load Messages" }
                 }
                 .button_holder {
                     button _="on click toggle @disabled on #say-hello" { "Toggle Disabled State" }
-                    button button id="say-hello" _="on click alert('hello!')" { "Say Hello" }
+                    button id="say-hello" _="on click alert('hello!')" { "Say Hello" }
+                    button _="on click toggle @hidden on #unhide-me" { "Hide Me" }
                 }
             }
             div class=(some_classes()) style="background-color:#0e2" {
